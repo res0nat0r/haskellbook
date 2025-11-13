@@ -32,7 +32,7 @@ jobs:
           enable-stack: true
 
       - name: stack-version
-      - run: stack --version
+        run: stack --version
 
 
 # name: Haskell CI

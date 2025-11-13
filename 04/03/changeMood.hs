@@ -5,3 +5,5 @@ changeMood Blah = Woot
 changeMood Woot = Blah
 
 rev x = reverse x
+
+revxxx y = reverse y

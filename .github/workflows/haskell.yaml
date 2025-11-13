@@ -7,7 +7,7 @@ name: hlint
 jobs:
   hlint:
     name: hlint
-    runs-on: ubuntu-latest # or macOS-latest, or windows-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: haskell-actions/setup@v2
@@ -17,6 +17,19 @@ jobs:
           stack-version: 3.3.1
           enable-stack: true
       - run: hlint .
+
+      - name: cache
+        uses: actions/cache@v3
+        env:
+          cache-name: stack
+        with:
+          path: ~/.stack
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/*') }}'
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
 
 
 

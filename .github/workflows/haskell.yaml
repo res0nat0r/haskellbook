@@ -8,15 +8,8 @@ jobs:
   hlint:
     name: hlint
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: haskell-actions/setup@v2
-        with:
-          ghc-version: 9.6.7
-          cabal-version: 3.12.1.0
-          stack-version: 3.3.1
-          enable-stack: true
-      - run: stack --version
 
       - name: cache
         uses: actions/cache@v3
@@ -30,7 +23,16 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
 
+      - uses: actions/checkout@v4
+      - uses: haskell-actions/setup@v2
+        with:
+          ghc-version: 9.6.7
+          cabal-version: 3.12.1.0
+          stack-version: 3.3.1
+          enable-stack: true
 
+      - name: stack-version
+      - run: stack --version
 
 
 # name: Haskell CI

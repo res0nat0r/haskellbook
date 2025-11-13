@@ -10,9 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/cache@v3
 
       - name: cache
-        uses: actions/cache@v3
         env:
           cache-name: ghcup
         with:
@@ -23,7 +23,6 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
 
-      - uses: actions/checkout@v4
       - uses: haskell-actions/setup@v2
         with:
           ghc-version: 9.6.7

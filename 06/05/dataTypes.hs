@@ -11,6 +11,11 @@ data Date = Date Day Int deriving (Show)
 instance Eq Day where
     (==) Mon Mon = True
     (==) Tue Tue = True
+    (==) Wed Wed = True
+    (==) Thurs Thurs = True
+    (==) Fri Fri = True
+    (==) Sat Sat = True
+    (==) Sun Sun = True
     (==) _ _ = False
 
 instance Eq Date where
@@ -22,5 +27,5 @@ instance Eq Date where
 
 data Identity a = Identity a
 
-instance Eq a => Eq (Identity a) where
+instance (Eq a) => Eq (Identity a) where
     (==) (Identity v) (Identity v') = v == v'

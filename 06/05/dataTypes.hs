@@ -6,7 +6,6 @@ instance Eq Trivial where
     Trivial == Trivial = True
 
 data Day = Mon | Tue | Wed | Thurs | Fri | Sat | Sun deriving (Show)
-data Date = Date Day Int deriving (Show)
 
 instance Eq Day where
     (==) Mon Mon = True
@@ -17,6 +16,8 @@ instance Eq Day where
     (==) Sat Sat = True
     (==) Sun Sun = True
     (==) _ _ = False
+
+data Date = Date Day Int deriving (Show)
 
 instance Eq Date where
     (==)

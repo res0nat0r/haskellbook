@@ -5,7 +5,7 @@ data Trivial = Trivial
 instance Eq Trivial where
     Trivial == Trivial = True
 
-data Day = Mon | Tue | Wed | Thurs | Fri | Sat | Sun deriving (Show)
+data Day = Mon | Tue | Wed | Thurs | Fri | Sat | Sun deriving (Show, Ord)
 
 instance Eq Day where
     (==) Mon Mon = True
